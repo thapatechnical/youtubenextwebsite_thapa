@@ -13,18 +13,8 @@
 }
 
 
-.navbar_brand{
+.navbar_brand {
     text-align: left;
-}
-
-.navbarList a {
-    font-weight: bold;
-    font-size: 1.8rem;
-    color: #161617;
-}
-
-.navbarList .navbarItem a:hover {
-    color: #e50914;
 }
 
 .navbarList {
@@ -34,11 +24,67 @@
     gap: 3.2rem;
 }
 
+.navbarItem {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.navbarList a {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #161617;
+    padding: 1.3rem 1rem;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/*.navbarList .navbarItem a:hover {*/
+/*    color: #e50914;*/
+/*}*/
+
+.navbarItem a:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: .5rem;
+    background-color: #e50914;
+    left: -100%;
+}
+
+.navbarItem a:hover:before {
+    animation: coolNavLine .4s linear forwards;
+}
+
+@keyframes coolNavLine {
+    0% {
+        left: -100%;
+        height: .5rem;
+    }
+    50% {
+        left: 0;
+        height: .5rem;
+    }
+    100% {
+        left: 0;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.navbarList .navbarItem a:hover{
+    color: #fff;
+}
+
+
 .mobile-navbar-btn {
     display: none;
 }
 
-.mobile-nav-icon{
+.mobile-nav-icon {
     cursor: pointer;
 }
 
@@ -53,7 +99,7 @@
 
 @media screen and (max-width: 999px) {
 
-    .main_header{
+    .main_header {
         padding: 0 5rem;
     }
 
